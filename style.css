@@ -1,0 +1,26 @@
+*{
+    padding: 0%;
+    margin: 0%;
+
+}
+.navbar .img img{
+    margin: 25px;
+    margin-left: 43%;
+   height: 250px;
+   border: solid rgb(195, 204, 224) 2px;
+   border-radius: 110%;
+}
+p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 23px;
+text-align: center;
+}
+.links i {
+    align-items: center;
+    margin: 10px;
+    text-decoration: none;
+
+}
+.links{
+ margin-left: 43%;
+}

@@ -5,7 +5,32 @@
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
+// onclick response on CV viewer 
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById('cvModal');
+  const btn = document.getElementById('viewCVBtn');
+  const span = document.querySelector('.close-btn');
+  const cvFrame = document.getElementById('cvFrame');
 
+  if (btn && modal && span && cvFrame) {
+    btn.onclick = function () {
+      modal.style.display = "flex";
+      cvFrame.src = "assets/images/Supath Dhital CV.pdf#zoom=150";
+    };
+
+    span.onclick = function () {
+      modal.style.display = "none";
+      cvFrame.src = "";
+    };
+
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+        cvFrame.src = "";
+      }
+    };
+  }
+});
 
 // sidebar variables
 const sidebar = document.querySelector("[data-sidebar]");
@@ -134,8 +159,6 @@ for (let i = 0; i < formInputs.length; i++) {
   });
 }
 
-
-
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
@@ -157,3 +180,22 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+function sendEmail(event) {
+  event.preventDefault(); // Prevent page reload
+
+  const params = {
+    from_name: document.getElementById("fullname").value,
+    email_id: document.getElementById("email").value,
+    message: document.getElementById("message").value
+  };
+
+  emailjs.send("your_service_id", "your_template_id", params)
+    .then(function(response) {
+      alert("Message sent successfully!");
+      document.querySelector("form").reset();
+    }, function(error) {
+      alert("Failed to send message. Please try again.");
+    });
+}
+

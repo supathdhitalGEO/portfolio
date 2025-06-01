@@ -52,10 +52,14 @@
         <div class="info-content">
           <h1 class="name" title="Supath Dhital">Supath Dhital</h1>
 
-          <p class="title">Geomatics Engineer/ GeoAI Enthusiast</p>
+          <p class="title" style="font-weight: bold; color: #1310d7; font-size: 0.9rem; background-color: #f0f0f0; padding: 4px 8px; border-radius: 6px;">
+          Geospatial Dev/Water Resources
+        </p>
+
+
         </div>
 
-        <a class="download-button" href="assets/images/Supath Dhital CV.pdf" download>Download CV</a>
+        <button class="download-button" id="viewCVBtn">View CV</button>
 
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
@@ -94,7 +98,7 @@
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="Ph:+1 (659)-205 9698" class="contact-link">+1 (659)-205 9698</a>
+              <a href="Ph:+1 (659) 210 9698" class="contact-link">+1 659 210 9698</a>
             </div>
 
           </li>
@@ -142,9 +146,12 @@
 
     </aside>
 
-
-
-
+  <div id="cvModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <iframe id="cvFrame" src="" frameborder="0"></iframe>
+    </div>
+  </div>
 
     <!--
       - #main-content
@@ -1030,11 +1037,22 @@
 
         <section class="mapbox" data-mapbox>
           <figure>
-            <iframe src="https://maps.google.com/maps?q=27.7221,85.3063&t=&z=14&ie=UTF8&iwloc=&output=embed" width="600"
-              height="450" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
+            <iframe
+              src="https://maps.google.com/maps?q=33.2155,-87.5423&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="600"
+              height="450"
+              frameborder="0"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy">
+            </iframe>
           </figure>
         </section>
+
+        <div class="my-contact-details">
+          <p><strong>Location:</strong> Surface Dynamics Modeling Lab, Shelby Hall, 2021, Tuscaloosa, AL, USA</p>
+        </div>
+
         <section class="contact-form">
           <h3 class="h3 form-title">Contact Form</h3>
           <form method="post" class="form" data-form>
@@ -1046,7 +1064,7 @@
             </div>
             <textarea name="message" id="message" class="form-input" placeholder="Your Message" required
               data-form-input></textarea>
-            <button class="form-btn" onclick="sendEmail()" type="submit" data-form-btn>
+            <button class="form-btn" onclick="sendEmail(event)" type="submit" data-form-btn disabled>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>

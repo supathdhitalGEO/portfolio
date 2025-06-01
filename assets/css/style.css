@@ -23,6 +23,75 @@
 
   /* gradient */
 
+  /* Sidebar gradient background */
+.sidebar {
+  background: linear-gradient(135deg, #dba7ec, #0b3c78);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(65, 51, 67, 0.6);
+}
+
+/* Modal content */
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 900px;
+  height: 90vh;
+  max-height: 90vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make iframe take full available space */
+.modal-content iframe {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Close button styling */
+.close-btn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+/* Color icons */
+.contact-item .icon-box ion-icon[name="mail-outline"] {
+  color: #e46e63;
+}
+
+.contact-item .icon-box ion-icon[name="phone-portrait-outline"] {
+  color: #34A853;
+}
+
+/* Bold labels */
+.contact-title {
+  font-weight: bold;
+  color: #b5dd98; 
+}
+
+
   --bg-gradient-onyx: linear-gradient(
     to bottom right, 
     hsl(240, 5%, 79%) 3%, 
@@ -111,10 +180,56 @@
 
 }
 
+/* Target each navbar item by its position */
+/* Default navbar link appearance */
+.navbar-link {
+  font-weight: normal;
+  background: transparent;
+  border: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* When clicked (active) — button style */
+.navbar-link.active {
+  font-weight: bold;
+  background-color: rgb(16, 103, 170);
+  border: 2px solid currentColor;
+  color: inherit;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
 
 
+article[data-page="about"] {
+background: linear-gradient(135deg, #6a5769, #e2e3ba);
+padding: 20px;
+border-radius: 12px;
+}
 
+article[data-page="resume"] {
+background: linear-gradient(135deg, #2f3531, #625052);
+padding: 20px;
+border-radius: 12px;
+}
 
+article[data-page="portfolio"] {
+background: linear-gradient(135deg, #544a3d, #7c637c);
+padding: 20px;
+border-radius: 12px;
+}
+
+article[data-page="blog"] {
+background: linear-gradient(135deg, #a281a0, #414136);
+padding: 20px;
+border-radius: 12px;
+}
+
+article[data-page="contact"] {
+background: linear-gradient(135deg, #794075, #666644);
+padding: 20px;
+border-radius: 12px;
+}
 /*-----------------------------------*\
   #RESET
 \*-----------------------------------*/
@@ -401,8 +516,6 @@ main {
   background-color: skyblue;
 }
 
-
-
 .info_more-btn:hover,
 .info_more-btn:focus { background: var(--bg-gradient-yellow-1); }
 
@@ -465,14 +578,42 @@ main {
 
 .social-item .social-link {
   color: var(--light-gray-70);
-  font-size: 25px;
+  font-size:30px;
 }
 
 
 .social-item .social-link:hover { color:#8ec7ff; }
 
+.social-link {
+  font-size: 1.5rem;
+  display: inline-block;
+  transition: transform 0.3s;
+}
 
+.social-link:hover {
+  transform: scale(1.5);
+}
 
+/* Color each social icon */
+.social-link[href*="linkedin"] ion-icon {
+  color: #d4ea0c;
+}
+
+.social-link[href*="researchgate"] i {
+  color: #09ad9f;
+}
+
+.social-link[href*="twitter"] ion-icon {
+  color: #1da1f2;
+}
+
+.social-link[href*="youtube"] ion-icon {
+  color: #ff0000;
+}
+
+.social-link[href*="github"] ion-icon {
+  color: #dd690a;
+}
 
 
 /*-----------------------------------*\
@@ -1840,7 +1981,19 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   article { min-height: 100%; }
 
+.my-contact-details {
+  background-color: #ffffff;
+  padding: 1px 2px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  color: #0f9012;
+}
 
+.my-contact-details p {
+  margin: 5px 0;
+}
 
   /**
    * MAIN

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (btn && modal && span && cvFrame) {
     btn.onclick = function () {
       modal.style.display = "flex";
-      cvFrame.src = "assets/images/Supath Dhital CV.pdf#zoom=150";
+      cvFrame.src = "assets/images/Supath Dhital Resume.pdf#zoom=150";
     };
 
     span.onclick = function () {

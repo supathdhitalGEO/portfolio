@@ -576,27 +576,43 @@ main {
   padding-left: 7px;
 }
 
-.social-item .social-link {
-  color: var(--light-gray-70);
-  font-size:30px;
+.social-link {
+  background-color: rgb(255, 255, 255);
+  width: 40px;   /* reduced from 48px */
+  height: 40px;  /* reduced from 48px */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, background-color 0.4s;
+}
+
+.social-link ion-icon,
+.social-link i {
+  font-size: 1.2rem;  /* reduced from 1.5rem */
+  line-height: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
-.social-item .social-link:hover { color:#8ec7ff; }
+.social-item .social-link:hover { color:#f7c2b4; }
 
 .social-link {
   font-size: 1.5rem;
-  display: inline-block;
   transition: transform 0.3s;
 }
 
 .social-link:hover {
-  transform: scale(1.5);
+  transform: scale(1.6);
 }
 
 /* Color each social icon */
 .social-link[href*="linkedin"] ion-icon {
-  color: #d4ea0c;
+  color: #2c73ec;
 }
 
 .social-link[href*="researchgate"] i {
@@ -612,7 +628,7 @@ main {
 }
 
 .social-link[href*="github"] ion-icon {
-  color: #dd690a;
+  color: #201923;
 }
 
 

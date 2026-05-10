@@ -1,0 +1,73 @@
+/* ============================================================
+   VOLUNTEER.CSS
+   ============================================================ */
+
+.vol-timeline { display: flex; flex-direction: column; gap: 0; position: relative; padding-left: 2.5rem; }
+
+.vol-timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px; top: 16px; bottom: 16px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-blue), transparent);
+}
+
+.vol-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+}
+
+.vol-item:last-child { padding-bottom: 0; }
+
+.vol-item::before {
+  content: '';
+  position: absolute;
+  left: -2.08rem; top: 8px;
+  width: 12px; height: 12px;
+  background: var(--accent-blue);
+  border: 3px solid var(--bg-primary);
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.vol-item:hover::before { background: var(--accent-blue-dark); }
+
+.vol-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.vol-card:hover {
+  transform: translateX(3px);
+  box-shadow: 0 4px 20px var(--shadow-color);
+  border-color: var(--accent-blue);
+}
+
+.vol-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 0.5rem; gap: 1rem;
+}
+
+.vol-role { font-size: 1rem; font-weight: 700; color: var(--text-heading); }
+.vol-period { font-size: 0.75rem; color: var(--accent-blue); font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+
+.vol-org {
+  font-size: 0.87rem; color: var(--text-secondary); font-weight: 500;
+  margin-bottom: 0.65rem;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+
+.vol-org a { color: var(--accent-blue); text-decoration: none; }
+.vol-org a:hover { text-decoration: underline; }
+
+.vol-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+.vol-desc ul { margin-top: 0.4rem; padding-left: 1rem; list-style: disc; }
+.vol-desc ul li { margin-bottom: 0.25rem; }
+
+.vol-org-logo {
+  width: 28px; height: 28px; object-fit: contain;
+  border-radius: 4px; flex-shrink: 0;
+}

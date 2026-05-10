@@ -1,0 +1,140 @@
+/* ============================================================
+   CV.CSS
+   ============================================================ */
+
+.cv-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.cv-frame-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  height: 80vh;
+  min-height: 600px;
+}
+
+.cv-frame-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.cv-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  color: var(--text-muted);
+}
+
+.cv-fallback svg { width: 48px; height: 48px; opacity: 0.5; }
+
+.cv-glance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cv-glance-card {
+  padding: 1.5rem;
+  border-radius: 14px;
+}
+
+.cv-glance-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.cv-glance-title {
+  font-weight: 600;
+  color: var(--text-heading);
+  margin: 0.35rem 0 0.2rem;
+  font-size: 0.95rem;
+}
+
+.cv-glance-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.cv-detailed-wrap {
+  margin-top: 2.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.cv-detailed-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cv-detailed-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.2rem;
+}
+
+.cv-detailed-desc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.cv-detailed-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.cv-preview-btn {
+  gap: 0.45rem;
+  font-size: 0.88rem;
+}
+
+.cv-preview-panel {
+  border-top: 1px solid var(--border-color);
+  height: 80vh;
+  min-height: 600px;
+}
+
+.cv-preview-panel iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .cv-glance-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cv-detailed-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .cv-glance-grid {
+    grid-template-columns: 1fr;
+  }
+}

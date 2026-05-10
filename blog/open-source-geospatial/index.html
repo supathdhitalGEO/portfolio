@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="How GDAL, GeoPandas, QGIS, and PostGIS became the backbone of modern water science and flood mapping — lessons from building open-source tools used by NOAA." />
+  <title>Why I Build Open-Source Geospatial Tools | Supath Dhital</title>
+  <link rel="canonical" href="https://supathdhital.com.np/blog/open-source-geospatial/" />
+
+  <meta property="og:type"                content="article" />
+  <meta property="og:title"               content="Why I Build Open-Source Geospatial Tools" />
+  <meta property="og:description"         content="From FIMserv to msfootprint — a reflection on open science, reproducibility, and how open hydrologic software can move from research prototypes to tools people actually use." />
+  <meta property="og:url"                 content="https://supathdhital.com.np/blog/open-source-geospatial/" />
+  <meta property="og:image"               content="https://supathdhital.com.np/assets/images/blog/opensource.png" />
+  <meta property="article:author"         content="Supath Dhital" />
+  <meta property="article:published_time" content="2025-01-05" />
+
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Why I Build Open-Source Geospatial Tools" />
+  <meta name="twitter:description" content="A reflection on open science, reproducibility, and how open hydrologic software can move from research prototypes to real users." />
+  <meta name="twitter:image"       content="https://supathdhital.com.np/assets/images/blog/opensource.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why I Build Open-Source Geospatial Tools",
+    "description": "From FIMserv to msfootprint — a reflection on open science, reproducibility, and how open hydrologic software can move from research prototypes to real users.",
+    "datePublished": "2025-01-05",
+    "dateModified":  "2026-05-09",
+    "author": {
+      "@type": "Person",
+      "name": "Supath Dhital",
+      "url": "https://supathdhital.com.np",
+      "affiliation": { "@type": "Organization", "name": "University of Alabama, Surface Dynamics Modeling Lab" }
+    },
+    "publisher": { "@type": "Person", "name": "Supath Dhital", "url": "https://supathdhital.com.np" },
+    "image": "https://supathdhital.com.np/assets/images/blog/opensource.png",
+    "keywords": ["Open Source", "Python", "Reproducibility", "GIS", "Research Tools", "Open Science"],
+    "url": "https://supathdhital.com.np/blog/open-source-geospatial/"
+  }
+  </script>
+
+  <link rel="icon" href="/assets/images/favicon-profile.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/css/theme.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/blog.css" />
+  <link rel="stylesheet" href="/css/blog-post.css" />
+  <script src="/js/theme-toggle.js"></script>
+</head>
+<body>
+
+  <div id="reading-progress" role="progressbar" aria-label="Reading progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <div id="header-placeholder"></div>
+
+  <main id="main-content">
+
+    <div class="container">
+      <a href="/blog/" class="post-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Blog
+      </a>
+    </div>
+
+    <header class="article-header">
+      <div class="article-kicker">
+        <span class="article-category">Open Source</span>
+        <span class="article-divider" aria-hidden="true"></span>
+        <span class="article-date">January 5, 2025</span>
+        <span class="article-divider" aria-hidden="true"></span>
+        <span class="article-read-time">7 min read</span>
+        <span class="article-divider" aria-hidden="true"></span>
+        <span class="article-views">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span data-view-count>—</span> views
+        </span>
+      </div>
+
+      <h1 class="article-title">Why I Build Open-Source Geospatial Tools</h1>
+
+      <p class="article-subtitle">
+        From FIMserv to msfootprint — a reflection on open science, reproducibility, and how open hydrologic software can move from research prototypes to tools that researchers, forecasters, and emergency-focused practitioners can actually use.
+      </p>
+
+      <div class="article-tags-line">
+        <span class="tag tag-blue">Open Source</span>
+        <span class="tag">Python</span>
+        <span class="tag">Reproducibility</span>
+      </div>
+
+      <div class="article-byline">
+        <img src="/assets/images/profile/Dhital_head.jpg" alt="Supath Dhital" class="article-byline-photo" />
+        <div class="article-byline-info">
+          <div class="article-byline-name">Supath Dhital</div>
+          <div class="article-byline-role">GIS/RS Researcher · Surface Dynamics Modeling Lab, University of Alabama</div>
+          <div class="article-byline-meta">
+            <span>Published: <strong>January 5, 2025</strong></span>
+            <span class="article-divider" aria-hidden="true"></span>
+            <span>Updated: <strong>May 9, 2026</strong></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <figure class="article-cover">
+      <img src="/assets/images/blog/opensource.png" alt="Open-source geospatial tools and scientific software" />
+      <figcaption>Open-source software, documentation, and reusable data products are how research becomes something others can build on.</figcaption>
+    </figure>
+
+    <div class="article-layout">
+
+      <article class="article-content" id="article-content">
+
+        <div class="share-bar">
+          <span class="share-bar-label">Share</span>
+          <a href="#" id="share-linkedin" class="share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="#" id="share-twitter" class="share-btn" target="_blank" rel="noopener noreferrer" aria-label="Share on X / Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.843L1.962 2.25h6.36l4.263 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <button id="share-copy" class="share-btn" aria-label="Copy link to clipboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy Link
+          </button>
+        </div>
+
+        <div class="post-content" id="post-content">
+
+          <p>When I first started publishing geospatial code, I was not thinking about scale. I was thinking about friction. Too much hydrologic and geospatial research still depends on scripts that live on one laptop, workflows that only make sense to the person who wrote them, or figures in papers that no one can actually reproduce.</p>
+          <p>That is why I build open-source geospatial tools. I want the work to leave the lab. I want it to be installable, documented, reusable, and good enough that someone outside my immediate research group can apply it to a real problem.</p>
+          <p>By May 2026, that commitment has grown into a broader open-science ecosystem: <strong>FIMserv</strong>, <strong>FIMeval</strong>, <strong>msfootprint</strong>, <strong>RiverJoin</strong>, <strong>FIMbench</strong>, and the newer <strong>FIMbox</strong> testbed, along with public datasets and documentation that support flood forecasting, evaluation, hydrography integration, and geospatial decision support.</p>
+
+          <h2>The Problem with Closed Research Tools</h2>
+          <p>Academic research is often built on a paradox: we publish methods that cannot be reproduced because the code, data preparation logic, and operational assumptions are never released. A paper might describe a flood workflow in detail, but if the implementation is hidden, other researchers are left with a description rather than a usable method.</p>
+          <p>That is especially costly in geospatial water science. Flood forecasting, hydrography integration, and remote-sensing workflows are already complex. If the software is closed, the science becomes harder to validate, harder to extend, and nearly impossible to move into practice.</p>
+
+          <blockquote>
+            "A method that can't be reproduced is a method that can only be trusted by its authors."
+          </blockquote>
+
+          <h2>What Open Source Looks Like in My Work</h2>
+          <p>From the beginning of graduate school, I treated open source as a design principle rather than a final cleanup step. In practice, that means:</p>
+          <ul>
+            <li>Code hosted on GitHub with clear README files and installation instructions.</li>
+            <li>Packages published on PyPI so anyone can install them with a single <code>pip install</code> command.</li>
+            <li>Documentation hosted on CIROH's developer portal with tutorials and usage examples.</li>
+            <li>Datasets deposited on Zenodo or HydroShare with permanent DOIs for citation.</li>
+          </ul>
+          <p>That approach matters because open science is not just about code availability. It is also about usability. A public repository without packaging, examples, or documentation is still a barrier for most users.</p>
+
+          <div class="pull-quote" role="doc-pullquote">
+            "The purpose of science is to improve the world — and that's hard to do when the tools stay inside the university."
+          </div>
+
+          <h2>What Has Happened Since</h2>
+          <p>The most meaningful change since I first wrote this post is that the tools are no longer just personal or lab utilities. They are now part of a wider workflow used by researchers, collaborators, and operationally minded users.</p>
+          <p><strong>FIMserv</strong> has grown into a widely used open framework for generating flood inundation maps with NOAA's OWP HAND-FIM foundation, and its documentation is now publicly available through CIROH. <strong>FIMeval</strong> provides a reproducible evaluation framework tied to extensive benchmark databases. <strong>FIMbench</strong> adds a structured benchmark environment and web-access layer for comparative flood-model analysis. <strong>RiverJoin</strong> supports hydrofabric translation and bidirectional attribute transfer, while <strong>msfootprint</strong> makes global building-footprint extraction more accessible for local disaster and exposure studies.</p>
+          <p>Across those packages, the current portfolio now reflects more than <strong>70,000 cumulative downloads</strong>. That number matters less as a vanity metric than as evidence that the tools are useful beyond the project that originally motivated them.</p>
+
+          <h2>Why This Feels Different Now</h2>
+          <p>What makes open source exciting to me is not just visibility. It is the shift from isolated research output to reusable scientific infrastructure. Once a tool is public, someone else can test it, improve it, adapt it to a different watershed, compare it to a different model, or integrate it into a workflow I never anticipated.</p>
+          <p>That is already happening. CIROH now hosts public documentation for the community flood-inundation tools and benchmark workflows. In August 2025, Yahoo News covered FIMserv as a breakthrough flood forecasting tool. In September 2025, the Alabama Water Institute highlighted the new satellite-derived river slope database and the open-source spatial joining workflow behind that integration. Those are not just media moments. They are signs that open work is becoming operationally legible.</p>
+
+          <h2>Open Source Is Also About Accountability</h2>
+          <p>Publishing code changes the standard you hold yourself to. When a tool is public, people can see your assumptions, your interfaces, your naming decisions, your edge cases, and your documentation quality. That can be uncomfortable, but it is healthy. It pushes research software closer to engineering discipline without losing scientific curiosity.</p>
+          <p>It also makes collaboration easier. Open repositories lower the barrier for students, collaborators, and agencies to contribute fixes, ask questions, and reuse parts of a workflow without starting from zero.</p>
+
+          <h2>A Note for Early-Career Researchers</h2>
+          <p>If you are a student or early-career researcher, publish your code before it feels perfectly polished. A documented, usable tool that helps even a small number of people is more valuable than a nearly perfect workflow that never leaves your machine.</p>
+          <p>Start with GitHub. Write a README. Add installation instructions. Choose a license. Package what you can. If you create data, give it a stable home with a citation path. Especially in geospatial science and in parts of the world where proprietary software remains a real barrier, open tools are not just convenient. They are part of scientific access.</p>
+
+          <div class="info-box">
+            <strong>Explore the work:</strong> Start with <a href="https://github.com/sdmlua/FIMserv" target="_blank" rel="noopener">FIMserv</a>, <a href="https://github.com/sdmlua/fimeval" target="_blank" rel="noopener">FIMeval</a>, <a href="https://github.com/sdmlua/RiverJoin" target="_blank" rel="noopener">RiverJoin</a>, and <a href="https://github.com/supathdhitalGEO/msfootprint" target="_blank" rel="noopener">msfootprint</a>, then follow the documentation and linked datasets from there.
+          </div>
+
+        </div>
+
+        <div class="article-tags-section">
+          <div class="article-tags-section-label">Topics</div>
+          <div class="article-tags-line">
+            <span class="tag tag-blue">Open Source</span>
+            <span class="tag">Python</span>
+            <span class="tag">Reproducibility</span>
+            <span class="tag">GIS</span>
+            <span class="tag">Open Science</span>
+          </div>
+        </div>
+
+        <div class="share-bar" style="margin-top:1.75rem;">
+          <span class="share-bar-label">Share this article</span>
+          <a href="#" id="share-linkedin-2" class="share-btn" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="#" id="share-twitter-2" class="share-btn" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.843L1.962 2.25h6.36l4.263 5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+          <button id="share-copy-2" class="share-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy Link
+          </button>
+        </div>
+
+        <div class="author-card">
+          <img src="/assets/images/profile/Dhital_head.jpg" alt="Supath Dhital" class="author-card-photo" />
+          <div class="author-card-info">
+            <div class="author-card-label">Written by</div>
+            <div class="author-card-name">Supath Dhital</div>
+            <div class="author-card-title">GIS/RS Researcher · Surface Dynamics Modeling Lab · University of Alabama</div>
+            <p class="author-card-bio">
+              Supath Dhital is a geospatial and hydrology researcher specializing in surrogate flood inundation mapping, geospatial AI, and open-source hydrologic software. His work focuses on making flood forecasting faster, more accurate, better documented, and more operationally accessible across research and practice.
+            </p>
+            <div class="author-card-links">
+              <a href="https://supathdhital.com.np" class="author-card-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                Website
+              </a>
+              <a href="https://github.com/supathdhitalGEO" class="author-card-link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/supath-dhital-628b47222/" class="author-card-link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+              <a href="https://scholar.google.com/citations?hl=en&user=aczRhooAAAAJ" class="author-card-link" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+                Google Scholar
+              </a>
+              <a href="mailto:sdhital@ua.edu" class="author-card-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+      <aside class="article-toc" id="article-toc" aria-label="Table of contents">
+        <div class="toc-box">
+          <div class="toc-title">Contents</div>
+          <ul class="toc-list" id="toc-list"></ul>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="/js/nav.js"></script>
+  <script src="/js/scroll-animation.js"></script>
+  <script src="/js/blog-views.js"></script>
+  <script>
+    (function () {
+      var bar = document.getElementById('reading-progress');
+      if (!bar) return;
+      function update() {
+        var total = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = total > 0 ? Math.min(100, (window.pageYOffset / total) * 100) : 0;
+        bar.style.width = pct + '%';
+        bar.setAttribute('aria-valuenow', Math.round(pct));
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    }());
+    (function () {
+      var list = document.getElementById('toc-list');
+      if (!list) return;
+      var headings = document.querySelectorAll('#post-content h2, #post-content h3');
+      headings.forEach(function (h, i) {
+        if (!h.id) h.id = 'section-' + i;
+        var li = document.createElement('li');
+        li.className = 'toc-item ' + (h.tagName === 'H3' ? 'toc-h3' : 'toc-h2');
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent;
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+      var links = list.querySelectorAll('a');
+      var hdArr = Array.from(headings);
+      function markActive() {
+        var scrollY = window.pageYOffset + 120;
+        var current = hdArr[0];
+        hdArr.forEach(function (h) { if (h.getBoundingClientRect().top + window.pageYOffset <= scrollY) current = h; });
+        links.forEach(function (a) { a.classList.toggle('toc-active', current && a.getAttribute('href') === '#' + current.id); });
+      }
+      window.addEventListener('scroll', markActive, { passive: true });
+      markActive();
+    }());
+    (function () {
+      var url = encodeURIComponent(window.location.href);
+      var title = encodeURIComponent(document.title);
+      var liUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
+      var twUrl = 'https://twitter.com/intent/tweet?text=' + title + '&url=' + url;
+      function wire(liId, twId, cpId) {
+        var li = document.getElementById(liId), tw = document.getElementById(twId), cp = document.getElementById(cpId);
+        if (li) li.href = liUrl;
+        if (tw) tw.href = twUrl;
+        if (cp) cp.addEventListener('click', function () {
+          navigator.clipboard.writeText(window.location.href).then(function () {
+            var orig = cp.innerHTML;
+            cp.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+            setTimeout(function () { cp.innerHTML = orig; }, 2000);
+          });
+        });
+      }
+      wire('share-linkedin', 'share-twitter', 'share-copy');
+      wire('share-linkedin-2', 'share-twitter-2', 'share-copy-2');
+    }());
+  </script>
+</body>
+</html>

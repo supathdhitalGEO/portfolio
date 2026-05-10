@@ -1,0 +1,171 @@
+/* ============================================================
+   SKILLS.CSS
+   ============================================================ */
+
+.skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+.skills-category {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.55rem 1.55rem 1.6rem;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  overflow: hidden;
+}
+
+.skills-category::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-blue), #38bdf8);
+  opacity: 0.9;
+}
+
+.skills-category:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 14px 36px var(--shadow-color);
+  transform: translateY(-3px);
+}
+
+.skills-category-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  margin-bottom: 0.9rem;
+}
+
+.skills-cat-icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--accent-blue-soft), rgba(56, 189, 248, 0.12));
+  border: 1px solid rgba(14, 118, 218, 0.18);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-blue);
+  flex-shrink: 0;
+}
+
+.skills-cat-icon svg { width: 20px; height: 20px; }
+
+.skills-cat-text {
+  min-width: 0;
+}
+
+.skills-cat-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.skills-cat-meta {
+  margin-top: 0.22rem;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.skills-cat-summary {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.skills-tags { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+
+.skill-tag {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.42rem 0.82rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.79rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.skill-tag:hover {
+  background: var(--accent-blue-soft);
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
+  box-shadow: 0 6px 16px rgba(14, 118, 218, 0.08);
+}
+
+.skill-tag.highlight {
+  background: var(--accent-blue);
+  color: #fff;
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 18px rgba(14, 118, 218, 0.18);
+}
+
+/* Tools logos section */
+.tools-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.tool-logo-item {
+  display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+  padding: 0.75rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  min-width: 70px;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.tool-logo-item:hover { border-color: var(--accent-blue); box-shadow: 0 3px 12px var(--shadow-color); }
+
+.tool-logo-item img { width: 32px; height: 32px; object-fit: contain; }
+
+.tool-logo-item span {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Software stats */
+.software-stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2.5rem; }
+
+.software-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.25rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.software-stat-card:hover { border-color: var(--accent-blue); transform: translateY(-2px); }
+
+.software-stat-card .number {
+  font-size: 1.8rem; font-weight: 700; color: var(--accent-blue);
+  letter-spacing: -0.03em; line-height: 1;
+}
+
+.software-stat-card .label {
+  font-size: 0.75rem; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  margin-top: 0.3rem; font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .skills-layout { grid-template-columns: 1fr; }
+  .software-stats-grid { grid-template-columns: 1fr 1fr; }
+  .skills-category { padding: 1.35rem; }
+}
+
+@media (max-width: 480px) {
+  .software-stats-grid { grid-template-columns: 1fr; }
+}

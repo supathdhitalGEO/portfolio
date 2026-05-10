@@ -1,0 +1,89 @@
+/* ============================================================
+   THEME.CSS — Light / Dark Mode Variables
+   ============================================================ */
+
+/* Light Mode (default) */
+:root {
+  /* Backgrounds */
+  --bg-primary:    #f8fafc;
+  --bg-secondary:  #f1f5f9;
+  --bg-card:       #ffffff;
+  --bg-code:       #f1f5f9;
+
+  /* Text */
+  --text-heading:  #0a0f1e;
+  --text-primary:  #1a2332;
+  --text-secondary:#2d3f55;
+  --text-muted:    #52677f;
+
+  /* Accent — Sky Blue */
+  --accent-blue:       #0e76da;
+  --accent-blue-dark:  #0b5fb0;
+  --accent-blue-soft:  #e0f0ff;
+  --accent-blue-light: #bfdbfe;
+
+  /* Borders & Shadows */
+  --border-color:   #e2e8f0;
+  --border-strong:  #cbd5e1;
+  --shadow-color:   rgba(14, 118, 218, 0.08);
+  --shadow-strong:  rgba(0, 0, 0, 0.1);
+
+  /* Tags */
+  --tag-bg:   #f1f5f9;
+  --tag-text: #2d3f55;
+
+  /* Nav */
+  --nav-bg:          rgba(248, 250, 252, 0.95);
+  --nav-border:      rgba(226, 232, 240, 0.8);
+  --nav-text:        #2d3f55;
+  --nav-text-active: #0e76da;
+  --nav-hover-bg:    #f1f5f9;
+
+  /* Hero gradient */
+  --hero-gradient: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 40%, #f8fafc 100%);
+  --hero-blob: rgba(14, 118, 218, 0.06);
+
+  /* Footer */
+  --footer-bg:    #0f172a;
+  --footer-text:  #94a3b8;
+  --footer-heading: #f1f5f9;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --bg-primary:    #0d1117;
+  --bg-secondary:  #161b22;
+  --bg-card:       #1a2130;
+  --bg-code:       #161b22;
+
+  --text-heading:  #f0f6fc;
+  --text-primary:  #e6edf3;
+  --text-secondary:#8b949e;
+  --text-muted:    #6e7681;
+
+  --accent-blue:       #58a6ff;
+  --accent-blue-dark:  #79b8ff;
+  --accent-blue-soft:  rgba(88, 166, 255, 0.12);
+  --accent-blue-light: rgba(88, 166, 255, 0.25);
+
+  --border-color:   #21262d;
+  --border-strong:  #30363d;
+  --shadow-color:   rgba(0, 0, 0, 0.3);
+  --shadow-strong:  rgba(0, 0, 0, 0.5);
+
+  --tag-bg:   #21262d;
+  --tag-text: #8b949e;
+
+  --nav-bg:          rgba(13, 17, 23, 0.95);
+  --nav-border:      rgba(33, 38, 45, 0.8);
+  --nav-text:        #8b949e;
+  --nav-text-active: #58a6ff;
+  --nav-hover-bg:    #21262d;
+
+  --hero-gradient: linear-gradient(135deg, #0d1117 0%, #111827 40%, #0d1117 100%);
+  --hero-blob: rgba(88, 166, 255, 0.05);
+
+  --footer-bg:    #090d13;
+  --footer-text:  #6e7681;
+  --footer-heading: #e6edf3;
+}

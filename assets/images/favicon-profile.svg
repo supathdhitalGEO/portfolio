@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SD">
+  <circle cx="256" cy="256" r="228" fill="none" stroke="#0e76da" stroke-width="40"/>
+  <circle cx="256" cy="256" r="178" fill="none" stroke="#58a6ff" stroke-width="14" opacity=".55"/>
+  <text x="256" y="300" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="178" font-weight="800" letter-spacing="-12" fill="#0f172a">SD</text>
+</svg>

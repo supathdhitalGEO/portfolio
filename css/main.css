@@ -1,0 +1,135 @@
+/* ============================================================
+   MAIN.CSS — Global Reset, Typography, Base Styles
+   Supath Dhital Portfolio
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 18px; }
+
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Only animate background/color during an explicit theme switch */
+body.theme-transitioning,
+body.theme-transitioning * {
+  transition: background-color 0.3s ease, color 0.3s ease,
+              border-color 0.3s ease !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); }
+h4 { font-size: 1.1rem; }
+h5 { font-size: 0.95rem; }
+
+p { color: var(--text-secondary); line-height: 1.76; font-size: 1rem; }
+
+a { color: var(--accent-blue); text-decoration: none; transition: color 0.2s, opacity 0.2s; }
+a:hover { color: var(--accent-blue-dark); text-decoration: underline; }
+
+img { max-width: 100%; height: auto; display: block; }
+ul, ol { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+input, textarea, select { font-family: inherit; font-size: inherit; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+.section { padding: 5rem 0; }
+
+.section-header { margin-bottom: 3rem; }
+.section-header .section-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-blue);
+  margin-bottom: 0.4rem;
+}
+.section-header h2 { margin-bottom: 0.75rem; }
+.section-header .section-desc { color: var(--text-muted); max-width: 560px; font-size: 1rem; }
+.section-header .accent-line {
+  width: 2.5rem; height: 3px;
+  background: var(--accent-blue);
+  border-radius: 2px;
+  margin-top: 0.75rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.65rem 1.4rem; border-radius: 8px;
+  font-size: 0.95rem; font-weight: 500; transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  text-decoration: none !important;
+}
+.btn-primary { background: var(--accent-blue); color: #fff !important; border: 2px solid var(--accent-blue); }
+.btn-primary:hover { background: var(--accent-blue-dark); border-color: var(--accent-blue-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(14,118,218,0.25); }
+.btn-outline { background: transparent; color: var(--accent-blue) !important; border: 2px solid var(--accent-blue); }
+.btn-outline:hover { background: var(--accent-blue); color: #fff !important; transform: translateY(-1px); }
+.btn-ghost { background: var(--bg-secondary); color: var(--text-primary) !important; border: 2px solid var(--border-color); }
+.btn-ghost:hover { border-color: var(--accent-blue); color: var(--accent-blue) !important; }
+
+/* Cards */
+.card {
+  background: var(--bg-card); border: 1px solid var(--border-color);
+  border-radius: 12px; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px var(--shadow-color); border-color: var(--accent-blue-soft); }
+
+/* Tags */
+.tag {
+  display: inline-block; padding: 0.2rem 0.65rem;
+  background: var(--tag-bg); color: var(--tag-text);
+  border-radius: 100px; font-size: 0.75rem; font-weight: 500;
+}
+.tag-blue { background: var(--accent-blue-soft); color: var(--accent-blue); }
+
+/* Keep navigation instant: content should not re-fade on every page click. */
+.fade-up,
+.fade-in,
+.stagger > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* Grid */
+.grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.5rem; }
+
+@media (max-width: 900px) { .grid-3 { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 640px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .section { padding: 3rem 0; }
+}
+
+/* Misc */
+.divider { height: 1px; background: var(--border-color); margin: 2rem 0; }
+.text-muted { color: var(--text-muted); }
+.text-accent { color: var(--accent-blue); }
+.text-sm { font-size: 0.85rem; }
+.text-xs { font-size: 0.75rem; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
+::selection { background: var(--accent-blue-soft); color: var(--accent-blue-dark); }
+:focus-visible { outline: 2px solid var(--accent-blue); outline-offset: 3px; border-radius: 4px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border-width:0; }

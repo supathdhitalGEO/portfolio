@@ -146,9 +146,9 @@
 }
 
 [data-theme="dark"] .theme-toggle:hover {
-  background: rgba(88, 166, 255, 0.15);
-  color: #58a6ff;
-  border-color: #58a6ff;
+  background: rgba(34, 211, 238, 0.15);
+  color: #22d3ee;
+  border-color: #22d3ee;
 }
 
 .theme-toggle svg { width: 16px; height: 16px; }

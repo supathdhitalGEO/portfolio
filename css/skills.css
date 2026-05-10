@@ -19,7 +19,7 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--accent-blue), #38bdf8);
+  background: linear-gradient(90deg, var(--accent-blue), #a5b4fc);
   opacity: 0.9;
 }
 
@@ -39,8 +39,8 @@
 .skills-cat-icon {
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, var(--accent-blue-soft), rgba(56, 189, 248, 0.12));
-  border: 1px solid rgba(14, 118, 218, 0.18);
+  background: linear-gradient(135deg, var(--accent-blue-soft), rgba(165, 180, 252, 0.12));
+  border: 1px solid rgba(79, 70, 229, 0.18);
   border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
   color: var(--accent-blue);
@@ -95,14 +95,14 @@
   background: var(--accent-blue-soft);
   color: var(--accent-blue);
   border-color: var(--accent-blue);
-  box-shadow: 0 6px 16px rgba(14, 118, 218, 0.08);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.08);
 }
 
 .skill-tag.highlight {
   background: var(--accent-blue);
   color: #fff;
   border-color: var(--accent-blue);
-  box-shadow: 0 8px 18px rgba(14, 118, 218, 0.18);
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.18);
 }
 
 /* Tools logos section */

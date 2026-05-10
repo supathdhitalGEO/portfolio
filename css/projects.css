@@ -79,7 +79,7 @@
 .project-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(14, 118, 218, 0.7);
+  background: rgba(79, 70, 229, 0.78);
   display: flex; align-items: center; justify-content: center;
   gap: 0.75rem;
   opacity: 0;
